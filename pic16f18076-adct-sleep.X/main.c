@@ -65,12 +65,10 @@ int main(void)
         SLEEP();
         NOP(); //Prevent next instruction from loading while device enters sleep
         
-        LED_SetLow(); //Turn on LED to show when Active
-        
-        __delay_ms(250); //delay to see the controller go active
+        LED_SetLow(); //Turn on LED to show when Active                
         
         while(ADCC_GetConversionResult() >= ((ADUTHH << 8) + ADUTHL)); // Block statement placed to prevent flooding EUSART whenever the ADCC is above the threshold for multiple readings
         
-        
+        __delay_ms(250); //delay to see the controller go active
     }    
 }

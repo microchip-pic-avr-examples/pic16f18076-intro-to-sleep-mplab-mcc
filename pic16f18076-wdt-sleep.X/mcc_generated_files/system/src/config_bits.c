@@ -34,7 +34,7 @@
 // Configuration bits: selected in the GUI
 //CONFIG1
 #pragma config FEXTOSC = OFF    // External Oscillator Selection bits->Oscillator not enabled
-#pragma config RSTOSC = LFINTOSC    // Reset Oscillator Selection bits->LFINTOSC
+#pragma config RSTOSC = HFINTOSC_32MHz    // Reset Oscillator Selection bits->HFINTOSC (32 MHz)
 #pragma config CLKOUTEN = ON    // Clock Out Enable bit->CLKOUT function is enabled; FOSC/4 clock appears at OSC2
 #pragma config VDDAR = HI    // VDD Range Analog Calibration Selection bit->Internal analog systems are calibrated for operation between VDD = 2.3 - 5.5V
 
