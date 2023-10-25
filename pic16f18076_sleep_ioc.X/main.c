@@ -51,7 +51,7 @@ int main(void)
     //INTERRUPT_GlobalInterruptDisable(); 
 
     // Enable the Peripheral Interrupts 
-    INTERRUPT_PeripheralInterruptEnable(); 
+    //INTERRUPT_PeripheralInterruptEnable(); 
 
     // Disable the Peripheral Interrupts 
     //INTERRUPT_PeripheralInterruptDisable(); 
@@ -65,6 +65,6 @@ int main(void)
         NOP(); //Prevent next instruction from loading while device enters sleep
         
         LED_SetLow(); //Turn on LED to show when Active
-        while(SW0_GetValue() == 0){;} //block while button is held
+        while(!SW0_GetValue()){;} //block while button is held
     }    
 }

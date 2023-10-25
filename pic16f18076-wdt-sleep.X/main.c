@@ -67,6 +67,6 @@ int main(void)
         WDTCONbits.SEN = 0; //Disable Watchdog while active to prevent full reset
         
         LED_SetLow(); //Turn on LED to show when Active
-        __delay_ms(250); //delay to see the controller go active
+        __delay_ms(250); //delay to see the LED (optional))
     }    
 }
