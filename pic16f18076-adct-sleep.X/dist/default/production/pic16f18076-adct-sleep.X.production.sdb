@@ -1,0 +1,660 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F18076 ]
+[d frameptr 6 ]
+"116 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/adcc/src/adcc.c
+[e E7764 . `uc
+channel_ADCG1 35
+channel_VSS 58
+channel_Temp 59
+channel_FVR_buf1 62
+channel_FVR_buf2 63
+channel_AND0 24
+]
+"80 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/timer/src/tmr2.c
+[e E7780 . `uc
+TMR2_ROP_STARTS_TMRON 0
+TMR2_ROP_STARTS_TMRON_ERSHIGH 1
+TMR2_ROP_STARTS_TMRON_ERSLOW 2
+TMR2_ROP_RESETS_ERSBOTHEDGE 3
+TMR2_ROP_RESETS_ERSRISINGEDGE 4
+TMR2_ROP_RESETS_ERSFALLINGEDGE 5
+TMR2_ROP_RESETS_ERSLOW 6
+TMR2_ROP_RESETS_ERSHIGH 7
+TMR2_OS_STARTS_TMRON 8
+TMR2_OS_STARTS_ERSRISINGEDGE 9
+TMR2_OS_STARTS_ERSFALLINGEDGE 10
+TMR2_OS_STARTS_ERSBOTHEDGE 11
+TMR2_OS_STARTS_ERSFIRSTRISINGEDGE 12
+TMR2_OS_STARTS_ERSFIRSTFALLINGEDGE 13
+TMR2_OS_STARTS_ERSRISINGEDGEDETECT 14
+TMR2_OS_STARTS_ERSFALLINGEDGEDETECT 15
+TMR2_OS_STARTS_TMRON_ERSHIGH 22
+TMR2_OS_STARTS_TMRON_ERSLOW 23
+TMR2_MS_STARTS_TMRON_ERSRISINGEDGEDETECT 17
+TMR2_MS_STARTS_TMRON_ERSFALLINGEDGEDETECT 18
+TMR2_MS_STARTS_TMRON_ERSBOTHEDGE 19
+]
+"86
+[e E7803 . `uc
+TMR2_T2CKIPPS_PIN 0
+TMR2_TMR4_POSTSCALED 2
+TMR2_TMR6_POSTSCALED 3
+TMR2_CCP1OUT 4
+TMR2_CCP2OUT 5
+TMR2_PWM3OUT 6
+TMR2_PWM4OUT 7
+TMR2_PWM5OUT 8
+TMR2_CMP1OUT 9
+TMR2_ZCDOUT 10
+TMR2_CLC1OUT 11
+TMR2_CLC2OUT 12
+TMR2_CLC3OUT 13
+TMR2_CLC4OUT 14
+]
+"10 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"39 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\main.c
+[v _main main `(i  1 e 2 0 ]
+"47 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/adcc/src/adcc.c
+[v _ADCC_Initialize ADCC_Initialize `(v  1 e 1 0 ]
+"131
+[v _ADCC_GetConversionResult ADCC_GetConversionResult `(us  1 e 2 0 ]
+"295
+[v _ADCC_ThresholdISR ADCC_ThresholdISR `(v  1 e 1 0 ]
+"306
+[v _ADCC_SetADTIInterruptHandler ADCC_SetADTIInterruptHandler `(v  1 e 1 0 ]
+"311
+[v _ADCC_DefaultADTI_ISR ADCC_DefaultADTI_ISR `(v  1 s 1 ADCC_DefaultADTI_ISR ]
+"37 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/system/src/clock.c
+[v _CLOCK_Initialize CLOCK_Initialize `(v  1 e 1 0 ]
+"40 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/system/src/interrupt.c
+[v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
+"59
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
+"92
+[v _INT_CallBack INT_CallBack `(v  1 e 1 0 ]
+"101
+[v _INT_SetInterruptHandler INT_SetInterruptHandler `(v  1 e 1 0 ]
+"105
+[v _INT_DefaultInterruptHandler INT_DefaultInterruptHandler `(v  1 e 1 0 ]
+"38 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/system/src/pins.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+"129
+[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
+"37 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/system/src/system.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+"57 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/timer/src/tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
+"92
+[v _TMR2_Start TMR2_Start `(v  1 e 1 0 ]
+"98
+[v _TMR2_Stop TMR2_Stop `(v  1 e 1 0 ]
+"117
+[v _TMR2_PeriodCountSet TMR2_PeriodCountSet `(v  1 e 1 0 ]
+"122
+[v _TMR2_OverflowCallbackRegister TMR2_OverflowCallbackRegister `(v  1 e 1 0 ]
+"126
+[v _TMR2_DefaultOverflowCallback TMR2_DefaultOverflowCallback `(v  1 s 1 TMR2_DefaultOverflowCallback ]
+"131
+[v _TMR2_Tasks TMR2_Tasks `(v  1 e 1 0 ]
+[s S480 . 1 `uc 1 INTEDG 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"426 C:/Users/C65471/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.21.368/xc8\pic\include\proc\pic16f18076.h
+[u S485 . 1 `S480 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES485  1 e 1 @11 ]
+"732
+[v _TRISA TRISA `VEuc  1 e 1 @18 ]
+"794
+[v _TRISB TRISB `VEuc  1 e 1 @19 ]
+"856
+[v _TRISC TRISC `VEuc  1 e 1 @20 ]
+"918
+[v _TRISD TRISD `VEuc  1 e 1 @21 ]
+"980
+[v _TRISE TRISE `VEuc  1 e 1 @22 ]
+"1018
+[v _LATA LATA `VEuc  1 e 1 @24 ]
+[s S972 . 1 `uc 1 LATA0 1 0 :1:0 
+`uc 1 LATA1 1 0 :1:1 
+`uc 1 LATA2 1 0 :1:2 
+`uc 1 LATA3 1 0 :1:3 
+`uc 1 LATA4 1 0 :1:4 
+`uc 1 LATA5 1 0 :1:5 
+`uc 1 LATA6 1 0 :1:6 
+`uc 1 LATA7 1 0 :1:7 
+]
+"1035
+[u S981 . 1 `S972 1 . 1 0 ]
+[v _LATAbits LATAbits `VES981  1 e 1 @24 ]
+"1080
+[v _LATB LATB `VEuc  1 e 1 @25 ]
+"1142
+[v _LATC LATC `VEuc  1 e 1 @26 ]
+"1204
+[v _LATD LATD `VEuc  1 e 1 @27 ]
+"1266
+[v _LATE LATE `VEuc  1 e 1 @28 ]
+[s S467 . 1 `uc 1 INTF 1 0 :1:0 
+`uc 1 . 1 0 :3:1 
+`uc 1 IOCIF 1 0 :1:4 
+`uc 1 TMR0IF 1 0 :1:5 
+]
+"1317
+[u S472 . 1 `S467 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES472  1 e 1 @140 ]
+[s S708 . 1 `uc 1 NVMIF 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ACTIF 1 0 :1:2 
+`uc 1 TMR1IF 1 0 :1:3 
+`uc 1 TMR1GIF 1 0 :1:4 
+`uc 1 TMR3IF 1 0 :1:5 
+`uc 1 TMR3GIF 1 0 :1:6 
+`uc 1 TMR2IF 1 0 :1:7 
+]
+"1354
+[u S717 . 1 `S708 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES717  1 e 1 @141 ]
+[s S49 . 1 `uc 1 SSP2IF 1 0 :1:0 
+`uc 1 BCL2IF 1 0 :1:1 
+`uc 1 CM1IF 1 0 :1:2 
+`uc 1 ADIF 1 0 :1:3 
+`uc 1 ADTIF 1 0 :1:4 
+`uc 1 ZCDIF 1 0 :1:5 
+]
+"1533
+[u S56 . 1 `S49 1 . 1 0 ]
+[v _PIR4bits PIR4bits `VES56  1 e 1 @144 ]
+[s S503 . 1 `uc 1 INTE 1 0 :1:0 
+`uc 1 . 1 0 :3:1 
+`uc 1 IOCIE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+"1581
+[u S508 . 1 `S503 1 . 1 0 ]
+[v _PIE0bits PIE0bits `VES508  1 e 1 @150 ]
+[s S76 . 1 `uc 1 SSP2IE 1 0 :1:0 
+`uc 1 BCL2IE 1 0 :1:1 
+`uc 1 CM1IE 1 0 :1:2 
+`uc 1 ADIE 1 0 :1:3 
+`uc 1 ADTIE 1 0 :1:4 
+`uc 1 ZCDIE 1 0 :1:5 
+]
+"1797
+[u S83 . 1 `S76 1 . 1 0 ]
+[v _PIE4bits PIE4bits `VES83  1 e 1 @154 ]
+"2682
+[v _OSCCON2 OSCCON2 `VEuc  1 e 1 @526 ]
+"2724
+[v _OSCCON3 OSCCON3 `VEuc  1 e 1 @527 ]
+"2745
+[v _OSCSTAT OSCSTAT `VEuc  1 e 1 @528 ]
+"2796
+[v _OSCEN OSCEN `VEuc  1 e 1 @529 ]
+"2841
+[v _OSCTUNE OSCTUNE `VEuc  1 e 1 @530 ]
+"2899
+[v _OSCFRQ OSCFRQ `VEuc  1 e 1 @531 ]
+"2939
+[v _ACTCON ACTCON `VEuc  1 e 1 @532 ]
+"4822
+[v _T2TMR T2TMR `VEuc  1 e 1 @780 ]
+"4827
+[v _TMR2 TMR2 `VEuc  1 e 1 @780 ]
+"4876
+[v _T2PR T2PR `VEuc  1 e 1 @781 ]
+"4881
+[v _PR2 PR2 `VEuc  1 e 1 @781 ]
+"4930
+[v _T2CON T2CON `VEuc  1 e 1 @782 ]
+[s S855 . 1 `uc 1 OUTPS 1 0 :4:0 
+`uc 1 CKPS 1 0 :3:4 
+`uc 1 ON 1 0 :1:7 
+]
+"4966
+[s S859 . 1 `uc 1 T2OUTPS 1 0 :4:0 
+`uc 1 T2CKPS 1 0 :3:4 
+`uc 1 T2ON 1 0 :1:7 
+]
+[s S863 . 1 `uc 1 T2OUTPS0 1 0 :1:0 
+`uc 1 T2OUTPS1 1 0 :1:1 
+`uc 1 T2OUTPS2 1 0 :1:2 
+`uc 1 T2OUTPS3 1 0 :1:3 
+`uc 1 T2CKPS0 1 0 :1:4 
+`uc 1 T2CKPS1 1 0 :1:5 
+`uc 1 T2CKPS2 1 0 :1:6 
+]
+[s S871 . 1 `uc 1 OUTPS0 1 0 :1:0 
+`uc 1 OUTPS1 1 0 :1:1 
+`uc 1 OUTPS2 1 0 :1:2 
+`uc 1 OUTPS3 1 0 :1:3 
+`uc 1 CKPS0 1 0 :1:4 
+`uc 1 CKPS1 1 0 :1:5 
+`uc 1 CKPS2 1 0 :1:6 
+`uc 1 TMR2ON 1 0 :1:7 
+]
+[u S880 . 1 `S855 1 . 1 0 `S859 1 . 1 0 `S863 1 . 1 0 `S871 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES880  1 e 1 @782 ]
+"5076
+[v _T2HLT T2HLT `VEuc  1 e 1 @783 ]
+[s S752 . 1 `uc 1 MODE 1 0 :5:0 
+`uc 1 CSYNC 1 0 :1:5 
+`uc 1 CPOL 1 0 :1:6 
+`uc 1 PSYNC 1 0 :1:7 
+]
+"5111
+[s S757 . 1 `uc 1 MODE0 1 0 :1:0 
+`uc 1 MODE1 1 0 :1:1 
+`uc 1 MODE2 1 0 :1:2 
+`uc 1 MODE3 1 0 :1:3 
+`uc 1 MODE4 1 0 :1:4 
+`uc 1 CKSYNC 1 0 :1:5 
+`uc 1 CKPOL 1 0 :1:6 
+]
+[s S765 . 1 `uc 1 T2MODE 1 0 :5:0 
+`uc 1 T2CSYNC 1 0 :1:5 
+`uc 1 T2CPOL 1 0 :1:6 
+`uc 1 T2PSYNC 1 0 :1:7 
+]
+[s S770 . 1 `uc 1 T2MODE0 1 0 :1:0 
+`uc 1 T2MODE1 1 0 :1:1 
+`uc 1 T2MODE2 1 0 :1:2 
+`uc 1 T2MODE3 1 0 :1:3 
+`uc 1 T2MODE4 1 0 :1:4 
+]
+[u S776 . 1 `S752 1 . 1 0 `S757 1 . 1 0 `S765 1 . 1 0 `S770 1 . 1 0 ]
+[v _T2HLTbits T2HLTbits `VES776  1 e 1 @783 ]
+"5216
+[v _T2CLKCON T2CLKCON `VEuc  1 e 1 @784 ]
+"5374
+[v _T2RST T2RST `VEuc  1 e 1 @785 ]
+[s S821 . 1 `uc 1 RSEL 1 0 :8:0 
+]
+"5399
+[s S823 . 1 `uc 1 RSEL0 1 0 :1:0 
+`uc 1 RSEL1 1 0 :1:1 
+`uc 1 RSEL2 1 0 :1:2 
+`uc 1 RSEL3 1 0 :1:3 
+]
+[s S828 . 1 `uc 1 T2RSEL 1 0 :8:0 
+]
+[s S830 . 1 `uc 1 T2RSEL0 1 0 :1:0 
+`uc 1 T2RSEL1 1 0 :1:1 
+`uc 1 T2RSEL2 1 0 :1:2 
+`uc 1 T2RSEL3 1 0 :1:3 
+]
+[u S835 . 1 `S821 1 . 1 0 `S823 1 . 1 0 `S828 1 . 1 0 `S830 1 . 1 0 ]
+[v _T2RSTbits T2RSTbits `VES835  1 e 1 @785 ]
+"13426
+[v _ADLTHL ADLTHL `VEuc  1 e 1 @7436 ]
+"13554
+[v _ADLTHH ADLTHH `VEuc  1 e 1 @7437 ]
+"13689
+[v _ADUTHL ADUTHL `VEuc  1 e 1 @7438 ]
+"13817
+[v _ADUTHH ADUTHH `VEuc  1 e 1 @7439 ]
+"13952
+[v _ADERRL ADERRL `VEuc  1 e 1 @7440 ]
+"14080
+[v _ADERRH ADERRH `VEuc  1 e 1 @7441 ]
+"14215
+[v _ADSTPTL ADSTPTL `VEuc  1 e 1 @7442 ]
+"14343
+[v _ADSTPTH ADSTPTH `VEuc  1 e 1 @7443 ]
+"14478
+[v _ADFLTRL ADFLTRL `VEuc  1 e 1 @7444 ]
+"14606
+[v _ADFLTRH ADFLTRH `VEuc  1 e 1 @7445 ]
+"14743
+[v _ADACCL ADACCL `VEuc  1 e 1 @7446 ]
+"14871
+[v _ADACCH ADACCH `VEuc  1 e 1 @7447 ]
+"14999
+[v _ADACCU ADACCU `VEuc  1 e 1 @7448 ]
+"15055
+[v _ADCNT ADCNT `VEuc  1 e 1 @7449 ]
+"15183
+[v _ADRPT ADRPT `VEuc  1 e 1 @7450 ]
+"15318
+[v _ADPREVL ADPREVL `VEuc  1 e 1 @7451 ]
+"15446
+[v _ADPREVH ADPREVH `VEuc  1 e 1 @7452 ]
+"15581
+[v _ADRESL ADRESL `VEuc  1 e 1 @7453 ]
+"15709
+[v _ADRESH ADRESH `VEuc  1 e 1 @7454 ]
+"15829
+[v _ADPCH ADPCH `VEuc  1 e 1 @7455 ]
+"15894
+[v _ADACQL ADACQL `VEuc  1 e 1 @7457 ]
+"16022
+[v _ADACQH ADACQH `VEuc  1 e 1 @7458 ]
+"16114
+[v _ADCAP ADCAP `VEuc  1 e 1 @7459 ]
+"16173
+[v _ADPREL ADPREL `VEuc  1 e 1 @7460 ]
+"16301
+[v _ADPREH ADPREH `VEuc  1 e 1 @7461 ]
+"16393
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @7462 ]
+[s S101 . 1 `uc 1 GO 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 FM 1 0 :2:2 
+`uc 1 CS 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CONT 1 0 :1:6 
+`uc 1 ON 1 0 :1:7 
+]
+"16428
+[s S109 . 1 `uc 1 ADGO 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ADFM 1 0 :2:2 
+`uc 1 ADCS 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 ADCONT 1 0 :1:6 
+`uc 1 ADON 1 0 :1:7 
+]
+[s S117 . 1 `uc 1 DONE 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 FM0 1 0 :1:2 
+]
+[s S121 . 1 `uc 1 GO_nDONE 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 ADFM0 1 0 :1:2 
+]
+[u S125 . 1 `S101 1 . 1 0 `S109 1 . 1 0 `S117 1 . 1 0 `S121 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES125  1 e 1 @7462 ]
+"16503
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @7463 ]
+[s S334 . 1 `uc 1 DSEN 1 0 :1:0 
+`uc 1 PCSC 1 0 :1:1 
+`uc 1 . 1 0 :3:2 
+`uc 1 GPOL 1 0 :1:5 
+`uc 1 IPEN 1 0 :1:6 
+`uc 1 PPOL 1 0 :1:7 
+]
+"16525
+[s S341 . 1 `uc 1 ADDSEN 1 0 :1:0 
+`uc 1 . 1 0 :4:1 
+`uc 1 ADGPOL 1 0 :1:5 
+`uc 1 ADIPEN 1 0 :1:6 
+`uc 1 ADPPOL 1 0 :1:7 
+]
+[u S347 . 1 `S334 1 . 1 0 `S341 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES347  1 e 1 @7463 ]
+"16575
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @7464 ]
+[s S212 . 1 `uc 1 MD 1 0 :3:0 
+`uc 1 ACLR 1 0 :1:3 
+`uc 1 CRS 1 0 :3:4 
+`uc 1 PSIS 1 0 :1:7 
+]
+"16612
+[s S217 . 1 `uc 1 ADMD0 1 0 :1:0 
+`uc 1 ADMD1 1 0 :1:1 
+`uc 1 ADMD2 1 0 :1:2 
+`uc 1 ADACLR 1 0 :1:3 
+`uc 1 ADCRS0 1 0 :1:4 
+`uc 1 ADCRS1 1 0 :1:5 
+`uc 1 ADCRS2 1 0 :1:6 
+`uc 1 ADPSIS 1 0 :1:7 
+]
+[s S226 . 1 `uc 1 ADMD 1 0 :3:0 
+`uc 1 . 1 0 :1:3 
+`uc 1 ADCRS 1 0 :3:4 
+]
+[s S230 . 1 `uc 1 MD0 1 0 :1:0 
+`uc 1 MD1 1 0 :1:1 
+`uc 1 MD2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 CRS0 1 0 :1:4 
+`uc 1 CRS1 1 0 :1:5 
+`uc 1 CRS2 1 0 :1:6 
+]
+[u S238 . 1 `S212 1 . 1 0 `S217 1 . 1 0 `S226 1 . 1 0 `S230 1 . 1 0 ]
+[v _ADCON2bits ADCON2bits `VES238  1 e 1 @7464 ]
+"16717
+[v _ADCON3 ADCON3 `VEuc  1 e 1 @7465 ]
+[s S157 . 1 `uc 1 TMD 1 0 :3:0 
+`uc 1 SOI 1 0 :1:3 
+`uc 1 CALC 1 0 :3:4 
+]
+"16752
+[s S161 . 1 `uc 1 ADTMD0 1 0 :1:0 
+`uc 1 ADTMD1 1 0 :1:1 
+`uc 1 ADTMD2 1 0 :1:2 
+`uc 1 ADSOI 1 0 :1:3 
+`uc 1 ADCALC0 1 0 :1:4 
+`uc 1 ADCALC1 1 0 :1:5 
+`uc 1 ADCALC2 1 0 :1:6 
+]
+[s S169 . 1 `uc 1 ADTMD 1 0 :3:0 
+`uc 1 . 1 0 :1:3 
+`uc 1 ADCALC 1 0 :3:4 
+]
+[s S173 . 1 `uc 1 TMD0 1 0 :1:0 
+`uc 1 TMD1 1 0 :1:1 
+`uc 1 TMD2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 CALC0 1 0 :1:4 
+`uc 1 CALC1 1 0 :1:5 
+`uc 1 CALC2 1 0 :1:6 
+]
+[u S181 . 1 `S157 1 . 1 0 `S161 1 . 1 0 `S169 1 . 1 0 `S173 1 . 1 0 ]
+[v _ADCON3bits ADCON3bits `VES181  1 e 1 @7465 ]
+"16847
+[v _ADSTAT ADSTAT `VEuc  1 e 1 @7466 ]
+[s S276 . 1 `uc 1 STAT 1 0 :3:0 
+`uc 1 . 1 0 :1:3 
+`uc 1 MATH 1 0 :1:4 
+`uc 1 LTHR 1 0 :1:5 
+`uc 1 UTHR 1 0 :1:6 
+`uc 1 AOV 1 0 :1:7 
+]
+"16884
+[s S283 . 1 `uc 1 ADSTAT0 1 0 :1:0 
+`uc 1 ADSTAT1 1 0 :1:1 
+`uc 1 ADSTAT2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 ADMATH 1 0 :1:4 
+`uc 1 ADLTHR 1 0 :1:5 
+`uc 1 ADUTHR 1 0 :1:6 
+`uc 1 ADAOV 1 0 :1:7 
+]
+[s S292 . 1 `uc 1 ADSTAT 1 0 :3:0 
+`uc 1 . 1 0 :4:3 
+`uc 1 ADOV 1 0 :1:7 
+]
+[s S296 . 1 `uc 1 STAT0 1 0 :1:0 
+`uc 1 STAT1 1 0 :1:1 
+`uc 1 STAT2 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 OV 1 0 :1:7 
+]
+[u S302 . 1 `S276 1 . 1 0 `S283 1 . 1 0 `S292 1 . 1 0 `S296 1 . 1 0 ]
+[v _ADSTATbits ADSTATbits `VES302  1 e 1 @7466 ]
+"16979
+[v _ADREF ADREF `VEuc  1 e 1 @7467 ]
+"17035
+[v _ADACT ADACT `VEuc  1 e 1 @7468 ]
+"17139
+[v _ADCLK ADCLK `VEuc  1 e 1 @7469 ]
+"17243
+[v _ADCG1A ADCG1A `VEuc  1 e 1 @7470 ]
+"17305
+[v _ADCG1B ADCG1B `VEuc  1 e 1 @7471 ]
+"17367
+[v _ADCG1C ADCG1C `VEuc  1 e 1 @7472 ]
+"19425
+[v _ANSELA ANSELA `VEuc  1 e 1 @7820 ]
+"19537
+[v _WPUA WPUA `VEuc  1 e 1 @7821 ]
+"19599
+[v _ODCONA ODCONA `VEuc  1 e 1 @7822 ]
+"19661
+[v _SLRCONA SLRCONA `VEuc  1 e 1 @7823 ]
+"19723
+[v _INLVLA INLVLA `VEuc  1 e 1 @7824 ]
+"19785
+[v _IOCAP IOCAP `VEuc  1 e 1 @7825 ]
+"19847
+[v _IOCAN IOCAN `VEuc  1 e 1 @7826 ]
+"19909
+[v _IOCAF IOCAF `VEuc  1 e 1 @7827 ]
+"19971
+[v _ANSELB ANSELB `VEuc  1 e 1 @7830 ]
+"20083
+[v _WPUB WPUB `VEuc  1 e 1 @7831 ]
+"20145
+[v _ODCONB ODCONB `VEuc  1 e 1 @7832 ]
+"20207
+[v _SLRCONB SLRCONB `VEuc  1 e 1 @7833 ]
+"20269
+[v _INLVLB INLVLB `VEuc  1 e 1 @7834 ]
+"20331
+[v _IOCBP IOCBP `VEuc  1 e 1 @7835 ]
+"20393
+[v _IOCBN IOCBN `VEuc  1 e 1 @7836 ]
+"20455
+[v _IOCBF IOCBF `VEuc  1 e 1 @7837 ]
+"20517
+[v _ANSELC ANSELC `VEuc  1 e 1 @7840 ]
+"20629
+[v _WPUC WPUC `VEuc  1 e 1 @7841 ]
+"20691
+[v _ODCONC ODCONC `VEuc  1 e 1 @7842 ]
+"20753
+[v _SLRCONC SLRCONC `VEuc  1 e 1 @7843 ]
+"20815
+[v _INLVLC INLVLC `VEuc  1 e 1 @7844 ]
+"20877
+[v _IOCCP IOCCP `VEuc  1 e 1 @7845 ]
+"20939
+[v _IOCCN IOCCN `VEuc  1 e 1 @7846 ]
+"21001
+[v _IOCCF IOCCF `VEuc  1 e 1 @7847 ]
+"21063
+[v _ANSELD ANSELD `VEuc  1 e 1 @7850 ]
+"21175
+[v _WPUD WPUD `VEuc  1 e 1 @7851 ]
+"21237
+[v _ODCOND ODCOND `VEuc  1 e 1 @7852 ]
+"21299
+[v _SLRCOND SLRCOND `VEuc  1 e 1 @7853 ]
+"21361
+[v _INLVLD INLVLD `VEuc  1 e 1 @7854 ]
+"21423
+[v _ANSELE ANSELE `VEuc  1 e 1 @7860 ]
+"21475
+[v _WPUE WPUE `VEuc  1 e 1 @7861 ]
+"21513
+[v _ODCONE ODCONE `VEuc  1 e 1 @7862 ]
+"21545
+[v _SLRCONE SLRCONE `VEuc  1 e 1 @7863 ]
+"21577
+[v _INLVLE INLVLE `VEuc  1 e 1 @7864 ]
+"21615
+[v _IOCEP IOCEP `VEuc  1 e 1 @7865 ]
+"21636
+[v _IOCEN IOCEN `VEuc  1 e 1 @7866 ]
+"21657
+[v _IOCEF IOCEF `VEuc  1 e 1 @7867 ]
+"40 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/adcc/src/adcc.c
+[v _ADCC_ADTI_InterruptHandler ADCC_ADTI_InterruptHandler `*.37(v  1 s 2 ADCC_ADTI_InterruptHandler ]
+"38 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/system/src/interrupt.c
+[v _INT_InterruptHandler INT_InterruptHandler `*.37(v  1 e 2 0 ]
+"50 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/timer/src/tmr2.c
+[v _TMR2_OverflowCallback TMR2_OverflowCallback `*.37(v  1 s 2 TMR2_OverflowCallback ]
+"39 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\main.c
+[v _main main `(i  1 e 2 0 ]
+{
+"74
+} 0
+"92 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/timer/src/tmr2.c
+[v _TMR2_Start TMR2_Start `(v  1 e 1 0 ]
+{
+"96
+} 0
+"37 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/system/src/system.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+{
+"44
+} 0
+"57 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/timer/src/tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
+{
+"78
+} 0
+"122
+[v _TMR2_OverflowCallbackRegister TMR2_OverflowCallbackRegister `(v  1 e 1 0 ]
+{
+[v TMR2_OverflowCallbackRegister@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+"124
+} 0
+"38 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/system/src/pins.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+{
+"127
+} 0
+"40 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/system/src/interrupt.c
+[v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 1 0 ]
+{
+"50
+} 0
+"101
+[v _INT_SetInterruptHandler INT_SetInterruptHandler `(v  1 e 1 0 ]
+{
+[v INT_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+"103
+} 0
+"37 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/system/src/clock.c
+[v _CLOCK_Initialize CLOCK_Initialize `(v  1 e 1 0 ]
+{
+"54
+} 0
+"47 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/adcc/src/adcc.c
+[v _ADCC_Initialize ADCC_Initialize `(v  1 e 1 0 ]
+{
+"114
+} 0
+"306
+[v _ADCC_SetADTIInterruptHandler ADCC_SetADTIInterruptHandler `(v  1 e 1 0 ]
+{
+[v ADCC_SetADTIInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 0 ]
+"309
+} 0
+"131
+[v _ADCC_GetConversionResult ADCC_GetConversionResult `(us  1 e 2 0 ]
+{
+"135
+} 0
+"59 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/system/src/interrupt.c
+[v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
+{
+"81
+} 0
+"129 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/system/src/pins.c
+[v _PIN_MANAGER_IOC PIN_MANAGER_IOC `(v  1 e 1 0 ]
+{
+"131
+} 0
+"295 C:\VS_Code_Projects\pic16f18076-intro-to-sleep-mplab-mcc\pic16f18076-adct-sleep.X\mcc_generated_files/adcc/src/adcc.c
+[v _ADCC_ThresholdISR ADCC_ThresholdISR `(v  1 e 1 0 ]
+{
+"304
+} 0
+"311
+[v _ADCC_DefaultADTI_ISR ADCC_DefaultADTI_ISR `(v  1 s 1 ADCC_DefaultADTI_ISR ]
+{
+"315
+} 0

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/production\pic16f18076-intro-to-sleep.X.production.hex">
+    <memory name="program">
+      <units>words</units>
+      <length>16384</length>
+      <used>1615</used>
+      <free>14769</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>2048</length>
+      <used>126</used>
+      <free>1922</free>
+    </memory>
+  </executable>
+</project>
