@@ -41,7 +41,7 @@
             "ADC",
             "ADCC",
             "WDT",
-            "IoC",
+            "IOC",
             "TMR2"
         ],
         "keywords": [
