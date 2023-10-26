@@ -140,7 +140,7 @@ Next, add the Timer 2 module from "Device Resources" and change the oscillator f
 
 Next, navigate to the “Pin Grid View” at the bottom of the screen and set the ADCC ANx function to your desired analog pin (RD0 in this example). 
 
-![Pin Grid View](images/ADCT_PinGridView.png.png)
+![Pin Grid View](images/ADCT_PinGridView.png)
 
 
 Then, open the “Pins” menu under “Project Resources” and check that ADCC input pin is set to “Analog”.
@@ -192,7 +192,7 @@ Note: For more details on how to use power debugger please see the Atmel Power D
 
 ## Operation
 
-Once connected, switch on power and the power usage for any of the the above examples can be measured in Data Visualizer. Acheived values are shown below; however, exact values may vary from device to device. For average expected low power currents, please see the PIC16F18076 data sheet's electrical specifications section.
+Once connected, switch on power and the power usage for any of the the above examples can be measured in Data Visualizer. Achieved values are shown below; however, exact values may vary from device to device. For average expected low power currents, please see the PIC16F18076 electrical specifications in the data sheet.
 
 ### WDT Power Consumption
 
