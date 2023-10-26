@@ -5,7 +5,7 @@
 # Intro to Sleep with MCC Using a PIC16F18076
 
 <!-- This is where the introduction to the example goes, including mentioning the peripherals used -->
-Low power modes are essential for any embedded designer looking to minimize their design’s power consumption. This example will cover how to use the low power “Sleep Mode” on the PIC16F18076 and similar microcontrollers. Alongside sleep mode we will also be using the Watchdog Timer, Interrupt on Change (IoC) and the ADCC and EUSART peripherals. 
+Low power modes are essential for any embedded designer looking to minimize their design’s power consumption. This example will cover how to use the low power “Sleep Mode” on the PIC16F18076 and similar microcontrollers. Alongside sleep mode we will also be using the Watchdog Timer, Interrupt on Change (IOC) and the ADCC and EUSART peripherals. 
 
 ## Related Documentation
 
@@ -45,7 +45,7 @@ Open “Configuration Bits” and set the “External Oscillator Selection bits�
 Next, go in “Clock Control” under “Project Resources” and select “HFINTOSC_32MHz” for “Current Oscillator Select” and set the “HF Internal Clock” to 1Mhz.
 
 
-When moving from MCC configuration to application code, much of the process of entering “sleep” remains the same. The user calls the command SLEEP() or __asm(“sleep”) and the microcontroller will enter it’s low power state. The interesting part is leaving Sleep mode, since the CPU is no longer running at this point. Genrally speaking, any interrupt or reset that can be triggered while in this state can be used to wake up the device .
+When moving from MCC configuration to application code, much of the process of entering “sleep” remains the same. The user calls the command SLEEP() or __asm(“sleep”) and the microcontroller will enter it’s low power state. The interesting part is leaving Sleep mode, since the CPU is no longer running at this point. Generally speaking, any interrupt or reset that can be triggered while in this state can be used to wake up the device .
 
 ### Using Resets with Sleep Mode (Watchdog Timer)
 
@@ -77,7 +77,7 @@ Then, for code readability, go into the "Pins" menu inside of "Device Resources"
 
 ![Pins](images/pins_wdt.png)
 
-Generate the new changes then add LED toggles as shown below into the `main.c` while loop to make the Curiosity Nano's LED blink while it's awake. For demonstration purposes a delay function has also been added to make the device stay awake for a time before going back to sleep.
+Generate the new changes then add LED toggles as shown below into the `main.c` while loop to make the Curiosity Nano's LED blink while it's awake. For demonstration purposes, a delay function has also been added to make the device stay awake for 250 ms before going back to sleep.
 
 ```
 LED_SetHigh(); //Turn Off LED
@@ -91,13 +91,13 @@ LED_SetLow();
 __delay_ms(250);
 ```
 
-After which, program the Curiosity Nano and the LED will blink periodically as the device wakes.
+After entering the above code, program the Curiosity Nano and the LED will blink periodically as the device wakes.
 
 ### Using Interrupt-on-Change for Wake-Up
 
-This example uses the PIC16F18076's "Interrupt-on-Change" (IoC) to trigger an intterupt to wake the device from sleep when the Switch on the Curiosity Nano is pressed.
+This example uses the PIC16F18076's "Interrupt-on-Change" (IOC) to trigger an interrupt to wake the device from sleep when the switch on the Curiosity Nano is pressed.
 
-To begin, repeat the initial setup earlier in this document and navigate to the "Pin Grid View" in MCC. Then select RA0 as a GPIO input and RA1 as a GPIO output as shown below:
+To begin, create a new project and repeat the initial setup found earlier in this document and navigate to the "Pin Grid View" in MCC. Then select RA0 as a GPIO input and RA1 as a GPIO output as shown below:
 
 ![Interrupt on Change Pin Grid View](images/IOC_PinGridView.png)
 
@@ -122,18 +122,18 @@ while(1)
 
 Lastly, enable global interrupts by uncommenting `INTERRUPT_GlobalInterruptEnable();` from the same file then program the device. The LED will light up when SW0 is pressed and the device will be asleep when SW0 is not pressed.
 
-Note: A debounce circuit or function is good practice when using a pushbutton. This demo leaves out hardware debouncing for simplicity, however an example of hardware debouncing that can be done using the CLC and Timer 2 peripherals can been seen [here](https://mplab-discover.microchip.com/v2/item/com.microchip.code.examples/com.microchip.ide.project/com.microchip.subcategories.modules-and-peripherals.system-modules.Others/com.microchip.mcu8.mplabx.project.pic18f16q40-clc-switch-debouncing/2.0.1?view=about&dsl=debounce).
+Note: A debounce circuit or function is good practice when using a pushbutton. This demo leaves out hardware debouncing for simplicity, however an example of hardware debouncing that can be done using the CLC and Timer 2 peripherals can been seen [here](https://mplab-discover.microchip.com/com.microchip.mcu8.mplabx.project.pic18f16q40-clc-switch-debouncing).
 
 ### Using Peripheral Interrupts With Sleep Mode (ADCC)
 
-The PIC16F18076’s sleep mode can also be left using peripheral interrupts. This can be anything from: a Timer peripheral, the CLC, ADCC, and more. This example will be using the threshold interrupt from the ADCC peripheral, so while the specifics for setting up a peripheral will vary, the general process for using any peripheral interrupt as a wake-up will remain similar.
+The PIC16F18076’s sleep mode can also be left using peripheral interrupts. These interrupts can come from a Timer, Configurable Logic Cell (CLC), ADCC, or other peripheral. This example will be using the threshold interrupt from the ADCC peripheral, so while the specifics for setting up a peripheral will vary, the general process for using any peripheral interrupt as a wake-up will remain similar.
 
 Before setting up the interrupt, the peripheral will need to be configured. For this example the ADCC will be running in Basic Mode, Right-Aligned, and "Auto-conversion Trigger" set to TMR2. Then set the "Postive Input Channel" to "AND0". The ADCC oscillator must be set to ADCRC to enable ADCC operation while the PIC16F18076 is in sleep. For the threshold: set the “Error Calculation Mode” to “Actual Result vs. Setpoint”, the “Threshold Setpoint” to “0”, “Threshold Interrupt Mode” to “ADERR > ADUTH”, and “Upper Threshold” to your desired ADCC reading to trigger a wakeup (this example will use 700. however any value between 4095 and 0 will work for Basic Mode). Last for this menu, switch on “ADTI Interrupt Enable”. 
 
 ![ADCCC Settings](images/ADCT_ADCC.png)
 
 
-Next, add the Timer 2 module from "Device Resources" and change the oscillator from "HFINTOSC" to "LFINTOSC" and change the timer period as desired. This example uses 1ms, but any duration will work.
+Next, add the Timer 2 module from "Device Resources" and change the oscillator from "HFINTOSC" to "LFINTOSC" and change the timer period as desired. This example uses 1 ms, but any duration will work.
 
 ![Timer 2 Settings](images/ADCT_TMR2.png)
 
@@ -152,7 +152,7 @@ After configuring your peripheral and enabling interrupts for it it’s time for
 
 Note: Peripheral Interrupts for the PIC16F18076 may be used to wake the device from sleep by only enabling peripheral interrupts, however they will be unable to execute tasks from the ISR in this fashion. (TODO: !!!Run Test on this to verify!!!)
 
-Lastly include the function call “TMR2_Start();” in the main function, but before the while loop, to start the ADCC. Then add your statements to trigger SLEEP and the LED. Optionally a while statement to freeze the controller awake while the ADCC result is above the threshold result has been included below.
+Lastly include the function call “TMR2_Start();” in the main function, but before the while loop, to start the ADCC. Then add your statements to trigger SLEEP and the LED. An optional while statement to keep the device awake while the ADCC result is above the threshold result has been included below.
 
 ```
 int main(void)
@@ -176,7 +176,7 @@ int main(void)
     }    
 }
 ```
-After this, the microcontroller can be programmed and an analog sensor my be connected to the ADCC input pin (RD0). This example uses a 1 kOhm potentiometer. When the sensor reading passes the defined point the device will wake up and the LED will light up, then go back to sleep after the potentiometer leaves that range.
+After this, the microcontroller can be programmed and an analog sensor may be connected to the ADCC input pin (RD0). This example uses a 1 kOhm potentiometer. When the sensor reading passes the defined point the device will wake up and the LED will light up, then go back to sleep after the potentiometer leaves that range.
 
 ## Setting up a Test for Each Method
 
@@ -186,9 +186,9 @@ Since low power is one of the most common reasons to use sleep modes it's worth 
 
 ![Atmel Power Debugger Connections](images/power_debug.png)
 
-and in the case of the ADCC/Peripheral interrupt example, connect the potentiometer to the power suppley (but before the ammeter)  to isolate the microcontroller's power consumption from the potentiometer's.
+In the case of the ADCC/Peripheral interrupt example, connect the potentiometer to the power supply (but before the ammeter) to isolate the microcontroller's power consumption from the potentiometer's.
 
-Note: For more details on how to use power debugger please see the Atmel Power Debugger User Guide on the [product page](https://www.microchip.com/en-us/development-tool/ATPOWERDEBUGGER?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic16f18076&utm_content=intro-to-sleep-pic16f18076&utm_bu=MCU08). Alternatively a sufficient multimeter that can measure down to nanoamps and a seperate power supply may be used to measure current at this stage.
+Note: For more details on how to use power debugger please see the Atmel Power Debugger User Guide on the [product page](https://www.microchip.com/en-us/development-tool/ATPOWERDEBUGGER?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic16f18076&utm_content=intro-to-sleep-pic16f18076&utm_bu=MCU08). Alternatively a precision multimeter that can measure down to nanoamps and a separate power supply may be used to measure current at this stage.
 
 ## Operation
 
@@ -206,7 +206,7 @@ Shown above, the WDT example uses an average of 491 nA while asleep, and jumps t
 ![IOC Current](images/IOC_PowerMeasurment.png)
 ![IOC Active](images/IOC_ActivePower.png)
 
-Shown above, the IoC example uses an average of 80nA while asleep, and jumps to approximately 1.77 mA while active. 
+Shown above, the IOC example uses an average of 80nA while asleep, and jumps to approximately 1.77 mA while active. 
 
 ### ADCC/Peripheral Interrupt Power Consumption
 
@@ -214,8 +214,8 @@ Shown above, the IoC example uses an average of 80nA while asleep, and jumps to 
 ![ADCC Threshold Current](images/ADCT_PowerMeasurementConversionAverage.png)
 ![ADCC Threshold Active](images/ADCT_ActivePower_ConversionPower.png)
 
-The ADCC example differes from previous examples as there's are three effective "states" for the demo: when the board is active, when the board is asleep and waiting for TMR2, and when the board is asleep and the ADCC peripheral is running a conversion. The averages are shown with the described setting from earlier, however adjusting the duration between conversions will effect overall power usage for this demo. Shown above, the IoC example uses an average of 8.71uA while asleep counting conversions, but an average of only 804nA in between each conversion. The power consumption during an ADCC conversion jumped to roughly 82.4uA (however this value does vary), and while active this example runs approximately 1.78mA.
+The ADCC example differs from previous examples as there are three effective "states" for the demo: when the board is active, when the board is asleep and waiting for TMR2, and when the board is asleep and the ADCC peripheral is running a conversion. The averages are shown with the described setting from earlier, however adjusting the duration between conversions will affect overall power usage for this demo. Shown above, the IOC example uses an average of 8.71uA while asleep counting conversions, but an average of only 804nA in between each conversion. The power consumption during an ADCC conversion jumped to roughly 82.4uA (however this value does vary), and while active this example runs approximately 1.78mA.
 
 ## Summary
 
-These examples demonstrates how to set up and use the PIC16F18076 sleep mode along with methods of waking the device after using MPLAB Melody.
+These examples demonstrates how to set up and use the PIC16F18076 sleep mode along with methods of waking the device after using MCC.
