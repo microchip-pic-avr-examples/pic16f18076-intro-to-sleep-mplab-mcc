@@ -1,10 +1,8 @@
-<!-- Please do not change this logo with link -->
 
 [![MCHP](images/microchip.png)](https://www.microchip.com)
 
 # Intro to Sleep with MCC Using a PIC16F18076
 
-<!-- This is where the introduction to the example goes, including mentioning the peripherals used -->
 Low power modes are essential for any embedded designer looking to minimize their design’s power consumption. This example will cover how to use the low power “Sleep Mode” on the PIC16F18076 and similar microcontrollers. Alongside sleep mode we will also be using the Watchdog Timer, Interrupt on Change (IOC) and the ADCC and EUSART peripherals. 
 
 ## Related Documentation
@@ -21,16 +19,12 @@ Low power modes are essential for any embedded designer looking to minimize thei
 
 ## Hardware Used
 
--	PIC16F18076 Curiosity Nano [EV53Z50A](https://www.microchip.com/en-us/development-tool/EV53Z50A?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic16f18076&utm_content=intro-to-sleep-pic16f18076&utm_bu=MCU08) 
+-	PIC16F18076 Curiosity Nano [(EV53Z50A)](https://www.microchip.com/en-us/development-tool/EV53Z50A?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic16f18076&utm_content=intro-to-sleep-pic16f18076&utm_bu=MCU08) 
 -	Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/en-us/development-tool/AC164162?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic16f18076&utm_content=intro-to-sleep-pic16f18076&utm_bu=MCU08)
 -   Atmel Power Debugger [(atpowerdebugger)](https://www.microchip.com/en-us/development-tool/ATPOWERDEBUGGER?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic16f18076&utm_content=intro-to-sleep-pic16f18076&utm_bu=MCU08) (or any multimeter/ammeter that can measure in nA)
 -   1 kOhm potentiometer, breadboard, and some jumper wires
 
 ## Setup
-
-<!-- Explain how to connect hardware and set up software. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
-### Hardware Setup
-Plug the PIC16F18076 into the Curiosity Nano Base board and the MikroE Mic Click into mikroBUS 1.
 
 ### Initial Setup for all examples
 
@@ -38,18 +32,18 @@ First, we’ll have to start a new project and enter MCC.
 
 ![Configuration Bits Setup](images/config_bits.png)
 
-Open “Configuration Bits” and set the “External Oscillator Selection bits” to “Oscillator not Enabled” and “Reset Oscillator Selection bits to “HFINTOSC(32MHz)”. And to optimize low power performance for the purposes of this demo, disable "Brown Out Reset".
+Open “Configuration Bits” and set the “External Oscillator Selection bits” to “Oscillator not Enabled” and “Reset Oscillator Selection bits to “HFINTOSC(32MHz)”. Then disable "Brown Out Reset" to improve low power performance for this demo. (The BOR consumes a small amount of current and won't be used in any of these examples.)
 
 ![Clock Control](images/clock_control.png)
 
-Next, go in “Clock Control” under “Project Resources” and select “HFINTOSC_32MHz” for “Current Oscillator Select” and set the “HF Internal Clock” to 1Mhz.
+Next, go in “Clock Control” under “Project Resources” and select “HFINTOSC_32MHz” for “Current Oscillator Select” and set the “HF Internal Clock” to 1 Mhz.
 
 
-When moving from MCC configuration to application code, much of the process of entering “sleep” remains the same. The user calls the command SLEEP() or __asm(“sleep”) and the microcontroller will enter it’s low power state. The interesting part is leaving Sleep mode, since the CPU is no longer running at this point. Generally speaking, any interrupt or reset that can be triggered while in this state can be used to wake up the device .
+When moving from MCC configuration to application code, much of the process of entering “sleep” remains the same. The user calls the command `SLEEP()` or `__asm(“sleep”)` and the microcontroller will enter it’s low power state. The interesting part is leaving Sleep mode, since the CPU is no longer running at this point. Generally speaking, any interrupt or reset that can be triggered while in this state can be used to wake up the device.
 
 ### Using Resets with Sleep Mode (Watchdog Timer)
 
-After the initial setup has been handled, the first method covered will be waking up the microcontroller from sleep using the watchdog timer (WDT). The WDT is traditionally used as a reset to protect from infinite loops or freezes, however the WDT can be configured to run while the device is in sleep, and when a timeout event occurs the MCU will leave its sleep mode instead of executing a reset. This can be achieved by enabling the Watchdog timer before sending the sleep command and simply waiting for it to time out.
+After the initial setup has been handled, the first method covered will be waking up the microcontroller from sleep using the Watchdog Timer (WDT). The WDT is traditionally used as a reset to protect from infinite loops or freezes, however the WDT can be configured to run while the device is in sleep. If a timeout event occurs while the device is in sleep mode, the MCU will leave its sleep mode instead of executing a reset. This can be done by enabling the Watchdog timer before sending the sleep command and simply waiting for it to time out.
 
 ![Watchdog Timer](images/config_bits_wdt.png)
 
@@ -67,9 +61,9 @@ NOP();
 WDTCONbits.SEN = 0; //Disable Watchdog to prevent full reset
 ```
 
-NOTE: It’s good practice to place a NOP command after a sleep command. When the sleep command is called, the next assembly line is cached in the CPU. Having a NOP ensures no accidental operations are executed when switching in or out of low-power modes.
+NOTE: It’s good practice to place a NOP command after a sleep command. When the sleep command is called, the next instruction is pipelined in the CPU. Having a NOP ensures no accidental operations are executed when switching in or out of low-power modes.
 
-To test this, MCC can be used to set pin "RA1" to toggle led on the Curiosity Nano. Toggle "RA1" under GPIO Output in the Pin Grid View menu as shown below:
+To test this, MCC can be used to set pin "RA1" to toggle the LED on the Curiosity Nano. Toggle "RA1" under GPIO Output in the Pin Grid View menu as shown below:
 
 ![Pin Grid View](images/pin_grid_view_wdt.png)
 
