@@ -5,7 +5,7 @@
         "metaDataVersion": "1.3.0",
         "name": "com.microchip.mcu8.mplabx.project.pic16f18076-intro-to-sleep-mplab-mcc",
         "version": "1.0.0",
-        "displayName": "Intro to Sleep with MCC Using a PIC16F18076",
+        "displayName": "Introduction to Sleep Mode Using a PIC16F18076 Generated with MCC Melody",
         "projectName": "pic16f18076-intro-to-sleep-mplab-mcc",
         "shortDescription": "Project is a PIC16F18076 beginners guide to entering and exiting the device's sleep mode and a high level discussion on low-power techniques. It uses the PIC16F18076 Curiosity Nano and MPLAB X/MCC.",
         "ide": {
