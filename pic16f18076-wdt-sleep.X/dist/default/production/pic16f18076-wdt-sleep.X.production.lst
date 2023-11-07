@@ -1,9 +1,9 @@
 
 
-Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
-                                                                                               Tue Oct 10 15:46:11 2023
+Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
+                                                                                               Mon Oct 30 16:16:33 2023
 
-Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
+Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	16F18076
      2                           	pagewidth 120
      3                           	opt	flic
@@ -22,7 +22,7 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
     16                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
     17                           	dabs	1,0x7E,2
     18     0000                     
-    19                           ; Generated 21/06/2023 GMT
+    19                           ; Generated 14/09/2023 GMT
     20                           ; 
     21                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
     22                           ; All rights reserved.
@@ -3630,12 +3630,12 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
   3567                           ;	Reset Oscillator Selection bits
   3568                           ;	RSTOSC = HFINTOSC_32MHz, HFINTOSC (32 MHz)
   3569                           ;	Clock Out Enable bit
-  3570                           ;	CLKOUTEN = ON, CLKOUT function is enabled; FOSC/4 clock appears at OSC2
+  3570                           ;	CLKOUTEN = OFF, CLKOUT function is disabled; i/o or oscillator function on OSC2
   3571                           ;	VDD Range Analog Calibration Selection bit
   3572                           ;	VDDAR = HI, Internal analog systems are calibrated for operation between VDD = 2.3 - 5
       +                          .5V
   3573     8007                     	org	32775
-  3574     8007  3E8C               	dw	16012
+  3574     8007  3F8C               	dw	16268
   3575                           
   3576                           ;Config register CONFIG2 @ 0x8008
   3577                           ;	Master Clear Enable bit
@@ -3733,11 +3733,11 @@ Auto Spaces:
 
 Pointer List with Targets:
 
+    INT_InterruptHandler	PTR FTN()void  size(2) Largest target is 1
+		 -> INT_DefaultInterruptHandler(), NULL(), 
+
     INT_SetInterruptHandler@InterruptHandler	PTR FTN()void  size(2) Largest target is 1
 		 -> INT_DefaultInterruptHandler(), 
-
-    INT_InterruptHandler	PTR FTN()void  size(2) Largest target is 1
-		 -> NULL(), INT_DefaultInterruptHandler(), 
 
 
 Critical Paths under _main in COMMON
@@ -4201,8 +4201,8 @@ BITSFR63             0      0       0      64        0.0%
 SFR63                0      0       0      64        0.0%
 
 
-Microchip Technology PIC Macro Assembler V2.41 build 20230208172133 
-Symbol Table                                                                                   Tue Oct 10 15:46:11 2023
+Microchip Technology PIC Macro Assembler V2.45 build 20230818022343 
+Symbol Table                                                                                   Mon Oct 30 16:16:33 2023
 
                                       l5 00A0                                       l16 0083  
                                      l35 008E                                       l52 009C  

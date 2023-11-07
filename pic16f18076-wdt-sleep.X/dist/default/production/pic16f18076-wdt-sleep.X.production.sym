@@ -47,6 +47,7 @@ __Lbigram 0 0 ABS 0
 __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
 int$flags 7E 0 ABS 0
+___int_stack_hi 0 0 STACK 2
 __Hfunctab 0 0 ENTRY 0
 __Lfunctab 0 0 ENTRY 0
 __end_of_WDT_Initialize A1 0 CODE 0
@@ -265,6 +266,7 @@ __Lbank9 0 0 ABS 0
 __ptext1 77 0 CODE 0
 __ptext2 9D 0 CODE 0
 __ptext3 1A 0 CODE 0
+___stack_hi 0 0 STACK 2
 __ptext4 84 0 CODE 0
 __ptext5 98 0 CODE 0
 __ptext6 8F 0 CODE 0
@@ -292,6 +294,7 @@ __Lspace_3 0 0 ABS 0
 __end_of_INTERRUPT_InterruptManager 14 0 CODE 0
 __Hspace_4 10013 0 ABS 0
 __Lspace_4 0 0 ABS 0
+___stack_lo 0 0 STACK 2
 _PIN_MANAGER_Initialize 1A 0 CODE 0
 __Hbank10 0 0 ABS 0
 __Lbank10 0 0 ABS 0
@@ -422,6 +425,7 @@ __HcstackCOMMON 0 0 ABS 0
 __LcstackCOMMON 0 0 ABS 0
 __pcstackCOMMON 70 0 COMMON 1
 start_initialization 16 0 CODE 0
+___int_stack_lo 0 0 STACK 2
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
 __pmaintext 60 0 CODE 0
@@ -433,7 +437,7 @@ intentry 8 143 CODE 8 0
 cstackCOMMON 70 74 COMMON 70 1
 %locals
 dist/default/production\pic16f18076-wdt-sleep.X.production.o
-C:\Users\C65471\AppData\Local\Temp\xcAsa50.\driver_tmp_1.s
+C:\Users\C65471\AppData\Local\Temp\xcAs140.\driver_tmp_1.s
 5604 16 0 CODE 0
 5607 16 0 CODE 0
 5613 16 0 CODE 0

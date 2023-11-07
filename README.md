@@ -3,7 +3,7 @@
 
 # Introduction to Sleep Mode Using a PIC16F18076 Generated with MCC Melody
 
-This example shows the usage of the low-power “Sleep mode” on the PIC16F18076 and similar microcontrollers (MCUs). Alongside Sleep mode, the Watchdog Timer, Interrupt on Change (IOC), Analog-to-Digital Converter with Computation (ADC<sup>2</sup> or ADCC), and Timer 2 (TMR2) peripherals are used.
+This example shows the usage of the low-power “Sleep mode” on the PIC16F18076 and similar microcontrollers (MCUs). The Watchdog Timer, Interrupt on Change (IOC), Analog-to-Digital Converter with Computation (ADC<sup>2</sup> or ADCC), and Timer 2 (TMR2) peripherals will also be used alongside Sleep mode.
 
 ## Related Documentation
 
@@ -37,7 +37,7 @@ Note: The BOR consumes a small amount of current and won't be used in any of the
 
 ![Clock Control](images/clock_control.png)
 
-3.) When moving from the MCC configuration to the application code, most of the process of the "sleep entering process remains unchanged. Calling the command `SLEEP()` or `__asm(“sleep”)` will make the MCU will enter it’s Low-Power state. Since the CPU is no longer running, leaving Sleep mode creates an interesting scenario: any interrupt or reset that can be triggered in this state will wake up the device.
+3.) When moving from the MCC configuration to the application code, most of the process for entering Sleep mode remains unchanged. Calling the command `SLEEP()` or `__asm(“sleep”)` will make the MCU enter it’s Low-Power state. In this state the CPU is no longer active. While in this state, any interrupt or reset that can be triggered in this state will wake up the device.
 
 ### Using Resets with Sleep Mode (Watchdog Timer)
 
@@ -48,12 +48,12 @@ After completing the initial setup, the first method covered will be waking up t
 ![Watchdog Timer](images/config_bits_wdt.png)
 
 2.) After setting the WDT in the Configuration Bits tab, go to **Device Resources**, under **System** add the WDT module. Then set **Software Controlled Watchdog Timer Enable** to _ON_, set the **Watchdog Timer Clock Source Selection** to either the _LFINTOSC_ or _Secondary Oscillator (SOSC)_ and set the prescaler to an adequate value. 
-Note: This example uses a value of 1:65536 for the _LFINTOSC_ for a timer of approximately two seconds, but a different timer period can be used.
+Note: This example uses a value of 1:262144 for the _LFINTOSC_ to give a period of approximately 8.4 seconds, but a different timer period may be used.
 
 ![Watchdog Timer Device Resources](images/WDT_DeviceResources.png)
 ![Watchdog Timer](images/WDT.png) 
 
-3.) Once your code is generated just enable the WDT with the SEN bit before calling the Sleep command and disable it after leaving Sleep to prevent accidental resets. See the example below:
+3.) Once your code is generated, enable the WDT with the SEN bit before calling the Sleep command and disable it after leaving Sleep to prevent accidental resets. See the example below:
 
 ```
 WDTCONbits.SEN = 1; //Enable Watchdog Timer while in sleep
@@ -64,7 +64,7 @@ WDTCONbits.SEN = 0; //Disable Watchdog to prevent full reset
 
 Important: it is recommended to place a NOP command after a Sleep command. When the Sleep command is called, the next instruction is pipelined in the CPU. Having a NOP ensures no accidental operations are executed when switching in or out of low-power modes.
 
-4.) To test this, set pin _RA1_ to toggle the LED on the Curiosity Nano. Toggle _RA1_ under GPIO Output in the **Pin Grid View** menu, as shown below:
+4.) To show when the MCU is active, the pin _RA1_ can be set to toggle the LED on the Curiosity Nano. Select _RA1_ under GPIO Output in the **Pin Grid View** menu, as shown below:
 
 ![Pin Grid View](images/pin_grid_view_wdt.png)
 
@@ -72,7 +72,7 @@ Then, for code readability, go **Device Resources** -> **Pins** and change the c
 
 ![Pins](images/pins_wdt.png)
 
-5.) Generate the new changes, then add LED toggles as shown below into the `main.c` while loop to make the Curiosity Nano LED blink while in Awake state. For demonstration purposes, a delay function was added to make the device stay awake for 250 ms before going back to Sleep.
+5.) Generate the new changes, then toggle the LED as shown below in the `main.c` while loop to make the Curiosity Nano LED blink while Awake. For demonstration purposes, a delay function was added to make the device stay awake for 250 ms before going back to Sleep.
 
 ```
 LED_SetHigh(); //Turn Off LED
@@ -92,11 +92,11 @@ __delay_ms(250);
 
 This example uses the PIC16F18076's Interrupt-on-Change (IOC) to trigger an interrupt that wakes the device from Sleep mode when the switch on the Curiosity Nano is pressed.
 
-1.) Create a new project and repeat the initial setup mentioned earlier. Navigate to the **Pin Grid View** in MCC. Then select _RA0_ as a GPIO input and _RA1_ as a GPIO output, as shown below:
+1.) Create a new project and repeat the initial setup mentioned earlier. Navigate to the **Pin Grid View** in MCC. Then select _RA0_ as a GPIO input for the SW0 push button and _RA1_ as a GPIO output for LED0, as shown below:
 
 ![Interrupt on Change Pin Grid View](images/IOC_PinGridView.png)
 
-2.) Go to **Project Resources** -> **Pins** and give the pins _RA0_ and _RA1_ the custom names "SW0" and "LED" respectively. Ensure the pin does not float when the button is not pressed by setting _RA1_ with a _Weak Pullup_. In the "Interupt On Change" column, select _negative_ for RA0/SW0 to trigger an interrupt to wake the controller on a negative edge. Settings are shown below:
+2.) Go to **Project Resources** -> **Pins** and give the pins _RA0_ and _RA1_ the custom names "SW0" and "LED" respectively. To keep the pin from floating when the button is not pressed, enable the _Weak Pullup_ on _RA1_. In the "Interupt On Change" column, select _negative_ for RA0/SW0 to trigger an interrupt to wake the controller on a negative edge. Settings are shown below:
 
 ![Interrupt on Change Pins Menu](images/IOC_Pins.png)
 
