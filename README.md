@@ -75,15 +75,18 @@ Then, for code readability, go **Device Resources** -> **Pins** and change the c
 5.) Generate the new changes, then toggle the LED as shown below in the `main.c` while loop to make the Curiosity Nano LED blink while Awake. For demonstration purposes, a delay function was added to make the device stay awake for 250 ms before going back to Sleep.
 
 ```
-LED_SetHigh(); //Turn Off LED
+while(1)
+    {
+        LED_SetHigh(); //Turn Off LED
         
-WDTCONbits.SEN = 1;
-SLEEP();
-NOP();
-WDTCONbits.SEN = 0;
+        WDTCONbits.SEN = 1; //Enable Watchdog Timer while in sleep
+        SLEEP();
+        NOP(); //Prevent next instruction from loading while device enters sleep
+        WDTCONbits.SEN = 0; //Disable Watchdog while active to prevent full reset
         
-LED_SetLow(); 
-__delay_ms(250);
+        LED_SetLow(); //Turn on LED to show when Active
+        __delay_ms(250); //delay to see the LED (optional))
+    }
 ```
 
 6.) After entering the above code, program the Curiosity Nano and the LED will blink periodically as the device wakes.
