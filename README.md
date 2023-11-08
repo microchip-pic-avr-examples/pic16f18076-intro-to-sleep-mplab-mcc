@@ -14,7 +14,7 @@ This example shows the usage of the low-power “Sleep mode” on the PIC16F1807
 - [MPLAB® X IDE 6.1.5 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic16f18076&utm_content=intro-to-sleep-pic16f18076&utm_bu=MCU08)
 - [MPLAB XC8 2.45.0 or newer compiler](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic16f18076&utm_content=intro-to-sleep-pic16f18076&utm_bu=MCU08)
 - [MPLAB Code Configurator (MCC) 5.3.7 or newer](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_pic16f18076&utm_content=intro-to-sleep-pic16f18076&utm_bu=MCU08)
-- [Microchip PIC16F1xxxx_DFP Series Device Support (1.21.368) or newer](https://packs.download.microchip.com/)
+- [Microchip PIC16F1xxxx_DFP Series Device Support (1.22.376) or newer](https://packs.download.microchip.com/)
 
 
 ## Hardware Used
