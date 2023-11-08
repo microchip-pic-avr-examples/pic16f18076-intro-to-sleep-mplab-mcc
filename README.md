@@ -150,7 +150,6 @@ Then, go to **Project Resources** -> **Pins** and check that the ADCC input pin 
 
 After configuring the peripheral and enabling interrupts for it generate the application code. Go into the `main.c`. Enable interrupts by uncommenting `INTERRUPT_GlobalInterruptEnable();` and `INTERRUPT_PeripheralInterruptEnable();`.
 
-Note: Peripheral Interrupts for the PIC16F18076 may be used to wake the device from Sleep by only enabling peripheral interrupts, but are unable to execute tasks from the ISR as mentioned. (TODO: !!!Run Test on this to verify!!!)
 
 Include the function call `TMR2_Start();` in the main function before the while loop to start the ADCC. Then add instructions for Sleep mode and to blink the LED. An optional while statement to keep the device awake while the ADCC result is above the threshold result was included below.
 
